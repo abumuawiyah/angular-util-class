@@ -1,4 +1,4 @@
-(function($) {
+(function($, ng) {
   'use strict';
 
   angular
@@ -6,7 +6,7 @@
     .factory('util', util);
 
   /** @ngInject */
-  function util(serviceUtil, tmplUtil) {
+  function util(eventUtil, tmplUtil) {
     var args = arguments;
       
     function _isEmpty(){}
@@ -30,7 +30,9 @@
     }(this));
     
     return $.extend({
-        map: $.map
+        map: $.map,
+        bind: ng.bind,
+        extend: ng.extend
     }, this, {
         isEmpty : _isEmpty,
         isThruty: _isThruty,
@@ -38,4 +40,4 @@
     });
   }
     
-})(jQuery);
+})(jQuery, angular);
